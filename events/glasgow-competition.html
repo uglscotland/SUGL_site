@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glasgow Competition - SUGL Events</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-hero .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .event-content {
+            padding: 4rem 0;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .event-details-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competition-info {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .competition-info h4 {
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+        
+        .apparatus-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .apparatus-section h4 {
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .time-slot {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .venue-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .venue-card h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .important-note h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="../index.html#events" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Events
+            </a>
+            <h1>Glasgow Competition</h1>
+            <p>First Competition of the Season</p>
+            <div class="event-meta">
+                <div class="event-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>November 22, 2025</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>9:00 AM - 5:00 PM</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Glasgow Green</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Content -->
+    <section class="event-content">
+        <div class="container">
+            <div class="event-grid">
+                <div class="event-details-card">
+                    <h2>Competition Overview</h2>
+                    <p>Welcome to the first competition of the 2025-2026 SUGL season! This exciting event will bring together university gymnastics teams from across Scotland for a day of incredible performances, friendly competition, and celebration of the sport.</p>
+                    
+                    <div class="important-note">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Important Information</h4>
+                        <p><strong>Venue:</strong> The Palace of Arts, Glasgow Green (venue confirmation pending)<br>
+                        <strong>Event End Time:</strong> Must end by 5:00 PM due to venue restrictions<br>
+                        <strong>Venue Fee:</strong> £100 per hour</p>
+                    </div>
+                    
+                    <h3>Competition Format</h3>
+                    <p>This competition follows the standard SUGL format with individual and team events across multiple apparatus. Each university can enter multiple athletes in different categories.</p>
+                    
+                    <h3>Apparatus & Events</h3>
+                    
+                    <div class="apparatus-section">
+                        <h4>Men's Artistic Gymnastics</h4>
+                        <ul>
+                            <li>Floor Exercise</li>
+                            <li>Pommel Horse</li>
+                            <li>Rings</li>
+                            <li>Vault</li>
+                            <li>Parallel Bars</li>
+                            <li>Horizontal Bar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="apparatus-section">
+                        <h4>Women's Artistic Gymnastics</h4>
+                        <ul>
+                            <li>Vault</li>
+                            <li>Uneven Bars</li>
+                            <li>Balance Beam</li>
+                            <li>Floor Exercise</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="apparatus-section">
+                        <h4>Rhythmic Gymnastics</h4>
+                        <ul>
+                            <li>Individual routines</li>
+                            <li>Group routines (if sufficient entries)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Competition Schedule</h3>
+                    <div class="schedule-item">
+                        <span class="time-slot">8:00 AM</span>
+                        <span>Athlete Registration & Equipment Check</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">8:30 AM</span>
+                        <span>Warm-up Sessions Begin</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">9:00 AM</span>
+                        <span>Competition Begins - First Rotation</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">12:00 PM</span>
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">1:00 PM</span>
+                        <span>Competition Resumes</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">4:00 PM</span>
+                        <span>Final Rotation & Awards Ceremony</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">5:00 PM</span>
+                        <span>Event Ends</span>
+                    </div>
+                    
+                    <h3>Scoring & Judging</h3>
+                    <ul>
+                        <li>FIG (International Gymnastics Federation) scoring system</li>
+                        <li>Difficulty score + Execution score = Total score</li>
+                        <li>Professional judging panel</li>
+                        <li>Video review available for scoring disputes</li>
+                    </ul>
+                    
+                    <h3>What to Bring</h3>
+                    <ul>
+                        <li>University team kit/uniform</li>
+                        <li>Gymnastics equipment (grips, wristbands, etc.)</li>
+                        <li>Water and snacks</li>
+                        <li>Change of clothes</li>
+                        <li>University identification</li>
+                    </ul>
+                    
+                    <h3>Rules & Regulations</h3>
+                    <ul>
+                        <li>All participants must be current university students</li>
+                        <li>Valid university ID required for registration</li>
+                        <li>Follow FIG safety guidelines</li>
+                        <li>Respect for judges and officials mandatory</li>
+                        <li>Sportsmanship and fair play expected</li>
+                    </ul>
+                </div>
+                
+                <div class="event-sidebar">
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Venue</h4>
+                        <p>The Palace of Arts<br>
+                        Glasgow Green<br>
+                        Glasgow, G1 5DB</p>
+                        <small>*Venue confirmation pending</small>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Competition Details</h3>
+                        <p><strong>Entry Fee:</strong> £15 per athlete</p>
+                        <p><strong>Team Entry:</strong> £50 per university</p>
+                        <p><strong>Deadline:</strong> November 15, 2025</p>
+                        <p><strong>Categories:</strong> Beginner, Intermediate, Advanced</p>
+                        <p><strong>Age Groups:</strong> 18+ (university students)</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Awards & Recognition</h3>
+                        <ul>
+                            <li>Individual apparatus medals</li>
+                            <li>All-around champions</li>
+                            <li>Team trophies</li>
+                            <li>Most improved athlete</li>
+                            <li>Sportsmanship award</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Spectator Information</h3>
+                        <p><strong>Entry:</strong> Free for university students</p>
+                        <p><strong>General Public:</strong> £5 donation</p>
+                        <p><strong>Photography:</strong> Allowed (no flash)</p>
+                        <p><strong>Food & Drink:</strong> Available on site</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> competitions@sugl.scot</p>
+                        <p><i class="fas fa-phone"></i> +44 (0) 131 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div class="registration-form">
+                <h2>Register for Glasgow Competition</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University *</label>
+                        <select id="university" name="university" required>
+                            <option value="">Select your university</option>
+                            <option value="edinburgh">University of Edinburgh</option>
+                            <option value="glasgow">University of Glasgow</option>
+                            <option value="st-andrews">University of St Andrews</option>
+                            <option value="aberdeen">University of Aberdeen</option>
+                            <option value="dundee">University of Dundee</option>
+                            <option value="heriot-watt">Heriot-Watt University</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Competition Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select your category</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apparatus">Primary Apparatus *</label>
+                        <select id="apparatus" name="apparatus" required>
+                            <option value="">Select your apparatus</option>
+                            <option value="floor">Floor Exercise</option>
+                            <option value="vault">Vault</option>
+                            <option value="beam">Balance Beam</option>
+                            <option value="bars">Uneven Bars</option>
+                            <option value="pommel">Pommel Horse</option>
+                            <option value="rings">Rings</option>
+                            <option value="parallel">Parallel Bars</option>
+                            <option value="highbar">Horizontal Bar</option>
+                            <option value="rhythmic">Rhythmic Gymnastics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional-apparatus">Additional Apparatus (Optional)</label>
+                        <select id="additional-apparatus" name="additional-apparatus" multiple>
+                            <option value="floor">Floor Exercise</option>
+                            <option value="vault">Vault</option>
+                            <option value="beam">Balance Beam</option>
+                            <option value="bars">Uneven Bars</option>
+                            <option value="pommel">Pommel Horse</option>
+                            <option value="rings">Rings</option>
+                            <option value="parallel">Parallel Bars</option>
+                            <option value="highbar">Horizontal Bar</option>
+                            <option value="rhythmic">Rhythmic Gymnastics</option>
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergency-contact">Emergency Contact Name *</label>
+                        <input type="text" id="emergency-contact" name="emergency-contact" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergency-phone">Emergency Contact Phone *</label>
+                        <input type="tel" id="emergency-phone" name="emergency-phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medical-info">Medical Information</label>
+                        <textarea id="medical-info" name="medical-info" rows="3" placeholder="Any medical conditions, allergies, or special requirements..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any special requests or additional information..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">Register for Competition</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Rules</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

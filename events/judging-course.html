@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judging Course - SUGL Events</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-hero .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .event-content {
+            padding: 4rem 0;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .event-details-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-module {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #11998e;
+        }
+        
+        .course-module h4 {
+            color: #11998e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification-badge {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .certification-badge i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .venue-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .venue-card h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #11998e;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .prerequisites {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prerequisites h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="../index.html#events" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Events
+            </a>
+            <h1>Judging Course</h1>
+            <p>Essential judging certification for university gymnastics competitions</p>
+            <div class="event-meta">
+                <div class="event-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>October 18-19, 2025</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>9:00 AM - 5:00 PM</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Stirling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Content -->
+    <section class="event-content">
+        <div class="container">
+            <div class="event-grid">
+                <div class="event-details-card">
+                    <h2>Course Overview</h2>
+                    <p>This comprehensive two-day judging course is designed to provide participants with the essential knowledge and skills required to officiate at university gymnastics competitions. Whether you're a beginner or have some experience, this course will prepare you for the upcoming competition season.</p>
+                    
+                    <div class="prerequisites">
+                        <h4><i class="fas fa-info-circle"></i> Prerequisites</h4>
+                        <p>No prior judging experience required. Open to all university students interested in gymnastics. Basic understanding of gymnastics terminology is helpful but not essential.</p>
+                    </div>
+                    
+                    <h3>Course Modules</h3>
+                    
+                    <div class="course-module">
+                        <h4>Day 1: Fundamentals of Gymnastics Judging</h4>
+                        <ul>
+                            <li>Introduction to gymnastics scoring systems</li>
+                            <li>Understanding difficulty and execution scores</li>
+                            <li>Basic judging terminology and hand signals</li>
+                            <li>Equipment and apparatus overview</li>
+                            <li>Safety protocols and regulations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="course-module">
+                        <h4>Day 2: Advanced Judging Techniques</h4>
+                        <ul>
+                            <li>Detailed scoring criteria for each apparatus</li>
+                            <li>Common deductions and penalties</li>
+                            <li>Judging panel coordination</li>
+                            <li>Video review and analysis</li>
+                            <li>Practical judging exercises</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>What You'll Learn</h3>
+                    <ul>
+                        <li>How to evaluate gymnastics routines objectively</li>
+                        <li>Understanding of FIG (International Gymnastics Federation) rules</li>
+                        <li>Proper scoring methodology and documentation</li>
+                        <li>Communication skills for judging panels</li>
+                        <li>Handling challenging judging situations</li>
+                        <li>Preparation for official competition judging</li>
+                    </ul>
+                    
+                    <h3>Course Schedule</h3>
+                    <div class="course-module">
+                        <h4>Saturday, October 18th</h4>
+                        <p><strong>9:00 AM - 12:00 PM:</strong> Theory and fundamentals<br>
+                        <strong>1:00 PM - 5:00 PM:</strong> Practical exercises and demonstrations</p>
+                    </div>
+                    
+                    <div class="course-module">
+                        <h4>Sunday, October 19th</h4>
+                        <p><strong>9:00 AM - 12:00 PM:</strong> Advanced techniques and scoring<br>
+                        <strong>1:00 PM - 4:00 PM:</strong> Final assessments and certification<br>
+                        <strong>4:00 PM - 5:00 PM:</strong> Q&A and course wrap-up</p>
+                    </div>
+                    
+                    <h3>Materials Provided</h3>
+                    <ul>
+                        <li>Comprehensive judging manual</li>
+                        <li>Scoring sheets and templates</li>
+                        <li>Video examples and case studies</li>
+                        <li>Certificate upon completion</li>
+                        <li>Access to online resources</li>
+                    </ul>
+                </div>
+                
+                <div class="event-sidebar">
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Official Certification</h4>
+                        <p>Receive SUGL-recognized judging certification upon successful completion</p>
+                    </div>
+                    
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Venue</h4>
+                        <p>Stirling University<br>
+                        Gymnastics Training Centre<br>
+                        Stirling, FK9 4LA</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Course Details</h3>
+                        <p><strong>Cost:</strong> £75 (includes materials and certification)</p>
+                        <p><strong>Duration:</strong> 2 days (16 hours total)</p>
+                        <p><strong>Level:</strong> Beginner to Intermediate</p>
+                        <p><strong>Capacity:</strong> Limited to 25 participants</p>
+                        <p><strong>Instructor:</strong> Certified FIG Judge</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Benefits</h3>
+                        <ul>
+                            <li>Earn judging certification</li>
+                            <li>Gain valuable experience</li>
+                            <li>Network with other judges</li>
+                            <li>Contribute to university sport</li>
+                            <li>Enhance CV and skills</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> judging@sugl.scot</p>
+                        <p><i class="fas fa-phone"></i> +44 (0) 131 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div class="registration-form">
+                <h2>Register for Judging Course</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University *</label>
+                        <select id="university" name="university" required>
+                            <option value="">Select your university</option>
+                            <option value="edinburgh">University of Edinburgh</option>
+                            <option value="glasgow">University of Glasgow</option>
+                            <option value="st-andrews">University of St Andrews</option>
+                            <option value="aberdeen">University of Aberdeen</option>
+                            <option value="dundee">University of Dundee</option>
+                            <option value="heriot-watt">Heriot-Watt University</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Gymnastics Experience</label>
+                        <select id="experience" name="experience">
+                            <option value="">Select your experience level</option>
+                            <option value="none">No gymnastics experience</option>
+                            <option value="beginner">Beginner gymnast</option>
+                            <option value="intermediate">Intermediate gymnast</option>
+                            <option value="advanced">Advanced gymnast</option>
+                            <option value="coach">Gymnastics coach</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to become a judge? *</label>
+                        <textarea id="motivation" name="motivation" rows="3" placeholder="Please explain your interest in becoming a gymnastics judge..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">Availability for future competitions</label>
+                        <select id="availability" name="availability">
+                            <option value="">Select availability</option>
+                            <option value="weekends">Weekends only</option>
+                            <option value="weekdays">Weekdays only</option>
+                            <option value="flexible">Flexible schedule</option>
+                            <option value="limited">Limited availability</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements, questions, or additional information..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">Register for Course</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Rules</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

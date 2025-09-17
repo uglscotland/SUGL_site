@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edinburgh Competition - SUGL Events</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-hero .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .event-content {
+            padding: 4rem 0;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .event-details-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .venue-options {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .venue-options h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .venue-option {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .venue-option h5 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tentative-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tentative-info h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .time-slot {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .easter-note {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .easter-note h4 {
+            color: #2d5a2d;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="../index.html#events" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Events
+            </a>
+            <h1>Edinburgh Competition</h1>
+            <p>Potential Two-Day Competition Event</p>
+            <div class="event-meta">
+                <div class="event-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>February/March 2026</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Two-Day Event</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Edinburgh</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Content -->
+    <section class="event-content">
+        <div class="container">
+            <div class="event-grid">
+                <div class="event-details-card">
+                    <h2>Competition Overview</h2>
+                    <p>The Edinburgh Competition represents an exciting opportunity for SUGL to host a larger, more comprehensive event. The committee is working towards creating a two-day competition that will provide athletes with extended opportunities to showcase their skills across multiple apparatus.</p>
+                    
+                    <div class="tentative-info">
+                        <h4><i class="fas fa-info-circle"></i> Tentative Event Details</h4>
+                        <p><strong>Dates:</strong> February or March 2026 (exact dates TBD)<br>
+                        <strong>Format:</strong> Potential two-day event (Saturday and Sunday)<br>
+                        <strong>Timing:</strong> May coincide with Easter holidays in April</p>
+                    </div>
+                    
+                    <div class="easter-note">
+                        <h4><i class="fas fa-calendar-alt"></i> Easter Holiday Consideration</h4>
+                        <p>The committee is considering scheduling this event during the Easter holidays in April to maximize student participation and provide a memorable competition experience.</p>
+                    </div>
+                    
+                    <h3>Proposed Competition Format</h3>
+                    <p>This event is planned to be more extensive than our standard competitions, potentially featuring:</p>
+                    <ul>
+                        <li>Extended warm-up periods</li>
+                        <li>Multiple competition sessions</li>
+                        <li>Additional apparatus rotations</li>
+                        <li>Team events and relays</li>
+                        <li>Special exhibition performances</li>
+                        <li>Extended awards ceremony</li>
+                    </ul>
+                    
+                    <h3>Potential Venue Options</h3>
+                    <p>The committee is currently evaluating several venue options in Edinburgh:</p>
+                    
+                    <div class="venue-options">
+                        <h4>Bellahouston Sports Centre</h4>
+                        <div class="venue-option">
+                            <h5>Location</h5>
+                            <p>Bellahouston Drive, Glasgow (accessible from Edinburgh)</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Facilities</h5>
+                            <p>Multiple gymnasiums, excellent equipment, parking available</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Capacity</h5>
+                            <p>Large spectator area, multiple competition spaces</p>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-options">
+                        <h4>Kelvinhall International Sports Arena</h4>
+                        <div class="venue-option">
+                            <h5>Location</h5>
+                            <p>Argyle Street, Glasgow (accessible from Edinburgh)</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Facilities</h5>
+                            <p>International standard equipment, professional facilities</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Capacity</h5>
+                            <p>Large arena, excellent spectator viewing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-options">
+                        <h4>Meadowbank Sports Centre</h4>
+                        <div class="venue-option">
+                            <h5>Location</h5>
+                            <p>London Road, Edinburgh</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Facilities</h5>
+                            <p>Local venue, good equipment, central location</p>
+                        </div>
+                        <div class="venue-option">
+                            <h5>Capacity</h5>
+                            <p>Moderate size, good for local competitions</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Proposed Schedule (Tentative)</h3>
+                    
+                    <div class="day-header">
+                        <h3>Day 1 - Saturday</h3>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <span class="time-slot">8:00 AM</span>
+                        <span>Athlete Registration & Equipment Check</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">8:30 AM</span>
+                        <span>Opening Ceremony</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">9:00 AM</span>
+                        <span>Morning Competition Sessions</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">12:00 PM</span>
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">1:00 PM</span>
+                        <span>Afternoon Competition Sessions</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">5:00 PM</span>
+                        <span>Day 1 Concludes</span>
+                    </div>
+                    
+                    <div class="day-header">
+                        <h3>Day 2 - Sunday</h3>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <span class="time-slot">9:00 AM</span>
+                        <span>Final Competition Sessions</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">12:00 PM</span>
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">1:00 PM</span>
+                        <span>Exhibition Performances</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">3:00 PM</span>
+                        <span>Awards Ceremony</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">4:00 PM</span>
+                        <span>Event Concludes</span>
+                    </div>
+                    
+                    <h3>Special Features (Planned)</h3>
+                    <ul>
+                        <li>Extended warm-up periods for all athletes</li>
+                        <li>Multiple competition categories</li>
+                        <li>Team events and university challenges</li>
+                        <li>Special recognition for first-time competitors</li>
+                        <li>Photography and video opportunities</li>
+                        <li>Networking and social events</li>
+                    </ul>
+                    
+                    <h3>What This Means for Athletes</h3>
+                    <ul>
+                        <li>More time to prepare and warm up</li>
+                        <li>Opportunity to compete in multiple events</li>
+                        <li>Extended competition experience</li>
+                        <li>Better chance to showcase skills</li>
+                        <li>More social interaction with other universities</li>
+                        <li>Enhanced competition atmosphere</li>
+                    </ul>
+                </div>
+                
+                <div class="event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Event Status</h3>
+                        <p><strong>Planning Phase:</strong> Committee evaluation</p>
+                        <p><strong>Venue Selection:</strong> In progress</p>
+                        <p><strong>Date Confirmation:</strong> Pending</p>
+                        <p><strong>Format:</strong> Two-day event planned</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Venue Selection Criteria</h3>
+                        <ul>
+                            <li>Equipment quality</li>
+                            <li>Space availability</li>
+                            <li>Accessibility</li>
+                            <li>Cost considerations</li>
+                            <li>Parking facilities</li>
+                            <li>Spectator capacity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Why Two Days?</h3>
+                        <ul>
+                            <li>More competition time</li>
+                            <li>Better athlete experience</li>
+                            <li>Reduced time pressure</li>
+                            <li>Enhanced social aspects</li>
+                            <li>Professional atmosphere</li>
+                            <li>Better spectator experience</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Stay Updated</h3>
+                        <p>This event is still in planning. Subscribe to our newsletter or check back regularly for updates on:</p>
+                        <ul>
+                            <li>Confirmed dates</li>
+                            <li>Venue selection</li>
+                            <li>Registration opening</li>
+                            <li>Competition format</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> competitions@sugl.scot</p>
+                        <p><i class="fas fa-phone"></i> +44 (0) 131 123 4567</p>
+                        <p><i class="fas fa-calendar"></i> Event Planning Team</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expression of Interest Form -->
+            <div class="registration-form">
+                <h2>Expression of Interest</h2>
+                <p>Since this event is still in planning, we're collecting expressions of interest to help us finalize the details. Let us know if you'd be interested in participating!</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University *</label>
+                        <select id="university" name="university" required>
+                            <option value="">Select your university</option>
+                            <option value="edinburgh">University of Edinburgh</option>
+                            <option value="glasgow">University of Glasgow</option>
+                            <option value="st-andrews">University of St Andrews</option>
+                            <option value="aberdeen">University of Aberdeen</option>
+                            <option value="dundee">University of Dundee</option>
+                            <option value="heriot-watt">Heriot-Watt University</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest-level">Interest Level *</label>
+                        <select id="interest-level" name="interest-level" required>
+                            <option value="">Select your interest level</option>
+                            <option value="definitely">Definitely interested</option>
+                            <option value="probably">Probably interested</option>
+                            <option value="maybe">Maybe interested</option>
+                            <option value="not-sure">Not sure yet</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferred-dates">Preferred Dates</label>
+                        <select id="preferred-dates" name="preferred-dates">
+                            <option value="">Select preferred timing</option>
+                            <option value="february">February 2026</option>
+                            <option value="march">March 2026</option>
+                            <option value="easter">Easter holidays (April)</option>
+                            <option value="no-preference">No preference</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferred-venue">Preferred Venue</label>
+                        <select id="preferred-venue" name="preferred-venue">
+                            <option value="">Select preferred venue</option>
+                            <option value="bellahouston">Bellahouston Sports Centre</option>
+                            <option value="kelvinhall">Kelvinhall International Sports Arena</option>
+                            <option value="meadowbank">Meadowbank Sports Centre</option>
+                            <option value="no-preference">No preference</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="suggestions">Suggestions & Feedback</label>
+                        <textarea id="suggestions" name="suggestions" rows="3" placeholder="Any suggestions for the event format, timing, or other aspects..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional-info">Additional Information</label>
+                        <textarea id="additional-info" name="additional-info" rows="3" placeholder="Any other information you'd like to share..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">Submit Expression of Interest</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Rules</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

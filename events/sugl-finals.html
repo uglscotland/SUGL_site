@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUGL Finals - SUGL Events</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-hero .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .event-content {
+            padding: 4rem 0;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .event-details-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .championship-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #f093fb;
+        }
+        
+        .championship-info h4 {
+            color: #f093fb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .qualification-criteria {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .qualification-criteria h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .time-slot {
+            background: #f093fb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .venue-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .venue-card h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .trophy-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .trophy-section h3 {
+            color: #d63384;
+            margin-bottom: 1rem;
+        }
+        
+        .trophy-section i {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 1rem;
+        }
+        
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f093fb;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .season-stats {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .season-stats h4 {
+            color: #2d5a2d;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="../index.html#events" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Events
+            </a>
+            <h1>SUGL Finals</h1>
+            <p>Season Championship & Grand Finale</p>
+            <div class="event-meta">
+                <div class="event-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>March/April 2026</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full Day Event</span>
+                </div>
+                <div class="event-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dundee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Content -->
+    <section class="event-content">
+        <div class="container">
+            <div class="event-grid">
+                <div class="event-details-card">
+                    <h2>Championship Overview</h2>
+                    <p>Welcome to the SUGL Finals - the grand finale of the 2025-2026 gymnastics season! This prestigious event brings together the best university gymnasts from across Scotland for an unforgettable championship competition that will crown our season champions.</p>
+                    
+                    <div class="championship-info">
+                        <h4><i class="fas fa-trophy"></i> What Makes This Special</h4>
+                        <p>The SUGL Finals is not just another competition - it's the culmination of an entire season of hard work, dedication, and athletic excellence. Only the top performers from the season qualify to compete in this championship event.</p>
+                    </div>
+                    
+                    <h3>Championship Format</h3>
+                    <p>This event features an elite competition format designed to showcase the highest level of university gymnastics talent:</p>
+                    <ul>
+                        <li>Qualified athletes only (based on season performance)</li>
+                        <li>Championship-level scoring and judging</li>
+                        <li>Extended warm-up and preparation time</li>
+                        <li>Professional competition atmosphere</li>
+                        <li>Comprehensive awards ceremony</li>
+                        <li>Season highlights and recognition</li>
+                    </ul>
+                    
+                    <h3>Qualification Criteria</h3>
+                    <div class="qualification-criteria">
+                        <h4><i class="fas fa-info-circle"></i> How to Qualify</h4>
+                        <p>Athletes qualify for the SUGL Finals based on their performance throughout the season:</p>
+                        <ul>
+                            <li><strong>Top Performers:</strong> Top 3 athletes in each category from each university</li>
+                            <li><strong>Season Points:</strong> Accumulated points from all competitions</li>
+                            <li><strong>Consistency Award:</strong> Athletes who competed in 3+ events</li>
+                            <li><strong>Wild Card:</strong> Committee selection for exceptional cases</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Competition Schedule</h3>
+                    <div class="schedule-item">
+                        <span class="time-slot">7:30 AM</span>
+                        <span>Athlete Check-in & Equipment Verification</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">8:00 AM</span>
+                        <span>Opening Ceremony & Parade of Athletes</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">8:30 AM</span>
+                        <span>Championship Warm-up Sessions</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">9:30 AM</span>
+                        <span>Championship Competition Begins</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">12:00 PM</span>
+                        <span>Championship Lunch Break</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">1:00 PM</span>
+                        <span>Final Championship Rounds</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">3:30 PM</span>
+                        <span>Season Highlights & Recognition</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">4:00 PM</span>
+                        <span>Grand Awards Ceremony</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">5:30 PM</span>
+                        <span>Championship Concludes</span>
+                    </div>
+                    
+                    <h3>Championship Categories</h3>
+                    <div class="championship-info">
+                        <h4>Individual Championships</h4>
+                        <ul>
+                            <li>Men's All-Around Champion</li>
+                            <li>Women's All-Around Champion</li>
+                            <li>Apparatus Champions (each apparatus)</li>
+                            <li>Most Improved Athlete</li>
+                            <li>Sportsmanship Award</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="championship-info">
+                        <h4>Team Championships</h4>
+                        <ul>
+                            <li>University Team Champions</li>
+                            <li>Best Team Spirit</li>
+                            <li>Most Consistent University</li>
+                            <li>Best Newcomer University</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Season Statistics & Recognition</h3>
+                    <div class="season-stats">
+                        <h4><i class="fas fa-chart-line"></i> Season Highlights</h4>
+                        <p>During the Finals, we'll celebrate the entire season with:</p>
+                        <ul>
+                            <li>Season statistics and records</li>
+                            <li>Outstanding achievement recognition</li>
+                            <li>University rankings and standings</li>
+                            <li>Season photo highlights</li>
+                            <li>Special recognition for volunteers and officials</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>What Makes This Championship Special</h3>
+                    <ul>
+                        <li>Elite competition atmosphere</li>
+                        <li>Professional judging and scoring</li>
+                        <li>Comprehensive awards and recognition</li>
+                        <li>Season celebration and highlights</li>
+                        <li>Networking with top athletes</li>
+                        <li>Championship memorabilia</li>
+                        <li>Professional photography and video</li>
+                    </ul>
+                </div>
+                
+                <div class="event-sidebar">
+                    <div class="trophy-section">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Championship Trophies</h3>
+                        <p>Elite athletes will compete for prestigious SUGL championship trophies and medals</p>
+                    </div>
+                    
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Championship Venue</h4>
+                        <p>Dundee Gymnastics Centre<br>
+                        Dundee, Scotland<br>
+                        Championship-grade facilities</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Championship Details</h3>
+                        <p><strong>Entry:</strong> Qualified athletes only</p>
+                        <p><strong>Cost:</strong> £25 (includes championship pack)</p>
+                        <p><strong>Deadline:</strong> 2 weeks before event</p>
+                        <p><strong>Categories:</strong> Championship level only</p>
+                        <p><strong>Judging:</strong> Professional panel</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Championship Pack Includes</h3>
+                        <ul>
+                            <li>Championship t-shirt</li>
+                            <li>Official program</li>
+                            <li>Championship certificate</li>
+                            <li>Season highlights booklet</li>
+                            <li>Championship memorabilia</li>
+                            <li>Professional photos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Spectator Information</h3>
+                        <p><strong>Entry:</strong> £10 (includes program)</p>
+                        <p><strong>Students:</strong> £5 with ID</p>
+                        <p><strong>Photography:</strong> Professional service</p>
+                        <p><strong>Food & Drink:</strong> Championship catering</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> finals@sugl.scot</p>
+                        <p><i class="fas fa-phone"></i> +44 (0) 131 123 4567</p>
+                        <p><i class="fas fa-trophy"></i> Championship Director</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div class="registration-form">
+                <h2>Championship Registration</h2>
+                <p>Registration for the SUGL Finals is open to qualified athletes only. If you believe you qualify, please complete this form and we'll verify your eligibility.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University *</label>
+                        <select id="university" name="university" required>
+                            <option value="">Select your university</option>
+                            <option value="edinburgh">University of Edinburgh</option>
+                            <option value="glasgow">University of Glasgow</option>
+                            <option value="st-andrews">University of St Andrews</option>
+                            <option value="aberdeen">University of Aberdeen</option>
+                            <option value="dundee">University of Dundee</option>
+                            <option value="heriot-watt">Heriot-Watt University</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qualification-method">How did you qualify? *</label>
+                        <select id="qualification-method" name="qualification-method" required>
+                            <option value="">Select qualification method</option>
+                            <option value="top-performer">Top 3 in category from university</option>
+                            <option value="season-points">High season points total</option>
+                            <option value="consistency">Competed in 3+ events</option>
+                            <option value="wild-card">Committee selection</option>
+                            <option value="other">Other (please specify)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="season-events">Events competed in this season *</label>
+                        <select id="season-events" name="season-events" multiple required>
+                            <option value="training-weekend">Training Weekend</option>
+                            <option value="glasgow-competition">Glasgow Competition</option>
+                            <option value="edinburgh-competition">Edinburgh Competition</option>
+                            <option value="other-events">Other SUGL events</option>
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="best-performance">Best performance this season</label>
+                        <textarea id="best-performance" name="best-performance" rows="3" placeholder="Describe your best performance, scores, or achievements this season..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apparatus">Primary apparatus for championship</label>
+                        <select id="apparatus" name="apparatus">
+                            <option value="">Select your apparatus</option>
+                            <option value="floor">Floor Exercise</option>
+                            <option value="vault">Vault</option>
+                            <option value="beam">Balance Beam</option>
+                            <option value="bars">Uneven Bars</option>
+                            <option value="pommel">Pommel Horse</option>
+                            <option value="rings">Rings</option>
+                            <option value="parallel">Parallel Bars</option>
+                            <option value="highbar">Horizontal Bar</option>
+                            <option value="rhythmic">Rhythmic Gymnastics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="championship-goals">Championship goals</label>
+                        <textarea id="championship-goals" name="championship-goals" rows="3" placeholder="What are your goals for the championship?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergency-contact">Emergency Contact Name *</label>
+                        <input type="text" id="emergency-contact" name="emergency-contact" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergency-phone">Emergency Contact Phone *</label>
+                        <input type="tel" id="emergency-phone" name="emergency-phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medical-info">Medical Information</label>
+                        <textarea id="medical-info" name="medical-info" rows="3" placeholder="Any medical conditions, allergies, or special requirements..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional-info">Additional Information</label>
+                        <textarea id="additional-info" name="additional-info" rows="3" placeholder="Any other information relevant to your championship participation..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">Submit Championship Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Rules</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
