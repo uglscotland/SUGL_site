@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaches Signup - Training Weekend - SUGL Events</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background-image: url("https://pxl-v6-stiracuk.terminalfour.net/fit-in/1900x689/filters:quality(88)/filters:format(webp)/prod01/cdn/media/stirling/global-assets/homepage-banner-images/homepage.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            margin-right: 80%;
+            margin-top: 10px;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            background-color: #000a;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #16a34a;
+        }
+        
+        .coaches-form-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-register:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #form-messages {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .info-section {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #22c55e;
+        }
+        
+        .info-section h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .info-section h3 i {
+            color: #22c55e;
+            font-size: 1.2rem;
+        }
+        
+        .info-section p {
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="training-weekend.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Training Weekend
+            </a>
+            <h1>Coaches Signup</h1>
+            <p>Training Weekend - October 4-5, 2025</p>
+        </div>
+    </section>
+
+    <!-- Coaches Form -->
+    <section class="coaches-form-container">
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> Coach Information</h3>
+            <p>We're looking for qualified coaches to help with our training weekend. Coaches will recieve free entry for other training sessions.</p>
+        </div>
+        
+        <div class="registration-form">
+            <h2>Coach Registration Form</h2>
+            <form action="https://formspree.io/f/xwpnjevv" method="POST" id="coaches-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="university">University/Club *</label>
+                    <input type="text" id="university" name="university" required placeholder="Your university or club name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="qualifications">Coaching Qualifications *</label>
+                    <textarea id="qualifications" name="qualifications" rows="3" required placeholder="Please list your coaching qualifications and certifications"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialties">Specialties/Apparatus *</label>
+                    <textarea id="specialties" name="specialties" rows="2" required placeholder="Which apparatus or skills do you specialize in coaching?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Availability *</label>
+                    <div style="margin-bottom: 0.5rem;">
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <input type="checkbox" name="availability" value="saturday_alloa" required>
+                            Saturday Afternoon - Alloa Gymnastics (3 PM - 5 PM)
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <input type="checkbox" name="availability" value="sunday_alloa" required>
+                            Sunday Morning - Alloa Gymnastics (10 AM - 1 PM)
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <input type="checkbox" name="availability" value="sunday_stirling" required>
+                            Sunday Afternoon - Stirling Uni (5 PM - 8 PM)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Additional Information</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any additional information, dietary requirements, or special needs..."></textarea>
+                </div>
+                
+                <!-- Hidden field to identify the form -->
+                <input type="hidden" name="_subject" value="Training Weekend Coach Registration">
+                <input type="hidden" name="_next" value="?success=true">
+                
+                <button type="submit" class="btn-register" id="submit-btn">
+                    <span class="btn-text">Submit Coach Application</span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Submitting...
+                    </span>
+                </button>
+                
+                <!-- Success/Error Messages -->
+                <div id="form-messages" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center;">
+                    <div id="success-message" style="display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;">
+                        <i class="fas fa-check-circle"></i> Thank you! Your coach application has been submitted successfully. We'll be in touch soon.
+                    </div>
+                    <div id="error-message" style="display: none; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;">
+                        <i class="fas fa-exclamation-triangle"></i> Sorry, there was an error submitting your application. Please try again or contact us directly.
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Rules</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('coaches-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            const formMessages = document.getElementById('form-messages');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // Check for success parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                showSuccessMessage();
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
+                
+                // Hide any previous messages
+                formMessages.style.display = 'none';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Submit form data
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showSuccessMessage();
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showErrorMessage();
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                });
+            });
+
+            function showSuccessMessage() {
+                formMessages.style.display = 'block';
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function showErrorMessage() {
+                formMessages.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+                
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    </script>
+</body>
+</html>

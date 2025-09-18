@@ -65,9 +65,204 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
+        .overview-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .overview-section h2 {
+            color: #1e293b;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .overview-section h2 i {
+            color: #22c55e;
+            font-size: 1.5rem;
+        }
+        
+        .overview-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .info-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            /* border-left: 4px solid #667eea;   */
+        }
+        
+        .info-section h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .info-section h3 i {
+            color: #22c55e;
+            font-size: 1.2rem;
+        }
+        
+        .info-section p {
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .university-link {
+            margin-top: 0.5rem;
+        }
+        
+        .styled-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .styled-link:hover {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+        }
+        
+        .equipment-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .equipment-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .equipment-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .equipment-list li:hover {
+            color: #1e293b;
+            padding-left: 0.5rem;
+        }
+        
+        .equipment-list li i {
+            color: #22c55e;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Interactive Checklist Styles */
+        .equipment-checklist {
+            margin: 0;
+            padding: 0;
+        }
+
+        .checklist-item {
+            margin-bottom: 0.25rem;
+        }
+
+
+        .checklist-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .checklist-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        .input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+            accent-color: #22c55e;
+            color: #fff
+        }
+
+        .checklist-icon {
+            color: #22c55e;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-text {
+            color: #64748b;
+            font-size: 1rem;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        /* Checked state styling */
+        .checklist-label:has(.checklist-checkbox:checked) {
+            background: #f0fdf4;
+            border-color: #22c55e;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.1);
+        }
+
+
+        .info-section #packing-checklist {
+            transition: height 0.3s ease;
+            height: 500px;
+        }
+
+        
+        /* Hide the checklist when all items are checked with selector magic*/
+        #packing-checklist:not(:has(.checklist-checkbox:not(:checked))) {
+            height: 0;
+        }
+
+        
+        #packing-checklist .checklist-item {
+            transition: opacity 0.3s ease;
+        }
+
+        #packing-checklist:not(:has(.checklist-checkbox:not(:checked))) .checklist-item {
+            opacity: 0;
+        }
+
 
         .day-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: white;
             padding: 1rem;
             border-radius: 10px;
@@ -101,17 +296,17 @@
         }
         
         .time-slot {
-            background: #667eea;
-            color: white;
+            /* background: #667eea;
+            color: white; */
             padding: 0.5rem 1rem;
-            border-radius: 20px;
+            /* border-radius: 20px; */
             font-weight: 600;
             min-width: 100px;
             text-align: center;
         }
         
         .venue-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: white;
             padding: 1.5rem;
             border-radius: 15px;
@@ -143,7 +338,7 @@
             color: #333;
         }
         
-        .form-group input,
+        .form-group input:not([type="checkbox"]),
         .form-group select,
         .form-group textarea {
             width: 100%;
@@ -158,11 +353,11 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #22c55e;
         }
         
         .btn-register {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -226,7 +421,7 @@
         }
         
         .back-link:hover {
-            color: #764ba2;
+            color: #16a34a;
         }
         
         @media (max-width: 768px) {
@@ -295,39 +490,95 @@
         <div class="container">
             <div class="event-grid">
                 <div class="event-details-card">
-                    <h2>Event Overview</h2>
-                    <p>Join us for a relaxed weekend of training and socialising, get to know other universities and make new friends!</p>
+                    <div class="overview-section">
+                        <h2><i class="fas fa-info-circle"></i> Event Overview</h2>
+                        <p class="overview-description">Join us for a relaxed weekend of training and socialising, explore a new city and make new friends!</p>
+                    </div>
                     
-                    <h3>Hosting University</h3>
-                    <a href="https://www.stir.ac.uk/" target="_blank">Stirling University</a>
+                    <div class="info-section">
+                        <h3><i class="fas fa-university"></i> Hosting University</h3>
+                        <div class="university-link">
+                            <a href="https://www.stir.ac.uk/" target="_blank" class="styled-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Stirling University
+                            </a>
+                        </div>
+                    </div>
 
-                    <h3>Accommodation</h3>
-                    <p>Local students can arrange to be a host or arriving participants can be paired with a host if they wish to have a free accomodation option. This is not compulsory, but in previous years it has been a great way to make new friends and support the community.</p>
+                    <div class="info-section">
+                        <h3><i class="fas fa-bed"></i> Accommodation</h3>
+                        <p>Local students can arrange to be a host or arriving participants can be paired with a host if they wish to have a free accomodation option. This is not compulsory, but in previous years it has been a great way to make new friends and support the community.</p>
+                    </div>
                         
-                    <h3>What to Bring</h3>
-                    <ul>
-                        <li>Gymnastics attire (leotard, shorts, t-shirt)</li>
-                        <li>Gymnastics shoes or bare feet</li>
-                        <li>Water bottle</li>
-                        <li>Lunch and snacks</li>
-                        <li>Change of clothes</li>
-                        <li>Personal equipment (grips, wristbands if needed)</li>
-                    </ul>
+                    <div class="info-section">
+                        <h3><i class="fas fa-suitcase"></i> What to Bring - Packing Checklist</h3>
+                        <form class="equipment-checklist" id="packing-checklist">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="university-kit">
+                                    <span class="checklist-icon"><i class="fas fa-tshirt"></i></span>
+                                    <span class="checklist-text">University team kit/uniform</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="toiletries">
+                                    <span class="checklist-icon"><i class="fas fa-tshirt"></i></span>
+                                    <span class="checklist-text">Toiletries</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="towel">
+                                    <span class="checklist-icon"><i class="fas fa-suitcase"></i></span>
+                                    <span class="checklist-text">Towel</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="bandana">
+                                    <span class="checklist-icon"><i class="fas fa-suitcase"></i></span>
+                                    <span class="checklist-text">Bandana</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="gymnastics-attire">
+                                    <span class="checklist-icon"><i class="fas fa-tshirt"></i></span>
+                                    <span class="checklist-text">Gymnastics attire (leotard, shorts, t-shirt)</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="water-bottle">
+                                    <span class="checklist-icon"><i class="fas fa-tint"></i></span>
+                                    <span class="checklist-text">Water bottle</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="change-clothes">
+                                    <span class="checklist-icon"><i class="fas fa-tshirt"></i></span>
+                                    <span class="checklist-text">Change of clothes</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-item="personal-equipment">
+                                    <span class="checklist-icon"><i class="fas fa-dumbbell"></i></span>
+                                    <span class="checklist-text">Personal equipment (grips, wristbands if needed)</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
 
                     <h3>Training Schedule</h3>
                     <div class="day-header">
-                        <h3>Day 1 - Friday</h3>
+                        <h3>Day 1 - Saturday</h3>
                     </div>
                     <div class="schedule-item">
-                        <span class="time-slot">8 PM - 12AM</span>
-                        <span>Welcome to Stirling (Union Bar)</span>
-                    </div>
-                    <div class="day-header">
-                        <h3>Day 2 - Saturday</h3>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time-slot">11 AM - 12 PM</span>
-                        <span>Breakfast at<p>Cafe Nocilla</p></span>
+                        <span class="time-slot">TBC</span>
+                        <span>Morning Training Session</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">3 PM - 5 PM</span>
@@ -342,7 +593,7 @@
                         <span>Pirates Game (Pub Social)</span>
                     </div>
                     <div class="day-header">
-                        <h3>Day 3 - Sunday</h3>
+                        <h3>Day 2 - Sunday</h3>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">10 AM - 1 PM</span>
@@ -356,9 +607,66 @@
                         <span class="time-slot"> 8:30PM - 12AM</span>
                         <span>Stirling Uni (Pub Social)</span>
                     </div>
-                </div>  <!-- Registration Form -->
+
+                    <div class="info-section" style="margin-top: 2rem;">
+                    <h3>Signup and participation</h3>
+                    <p>You must have a British Gymnastics membership to participate in the training weekend. You likely already have one if you are a member of a university gymnastics team.</p>
+                    <br>
+                    <a href="https://www.britishgymnastics.org.uk/membership/join-british-gymnastics" target="_blank" class="styled-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        British Gymnastics Membership
+                    </a>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="event-sidebar">
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Saturday - Alloa</h4>
+                        <p>Alloa Gymnastics Centre<br>
+                        Stirling Road, Alloa<br>
+                        FK10 1NX</p>
+                    </div>
+                    
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Sunday - Stirling</h4>
+                        <p>Springkerse Gymnastics Centre<br>
+                        Springkerse Industrial Estate<br>
+                        Stirling, FK7 7UJ</p>
+                    </div>
+                    
+                    <div class="venue-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Sunday - Stirling Uni</h4>
+                        <p>Stirling University Sports Centre<br>
+                        University of Stirling<br>
+                        Stirling, FK9 4LA</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3>Event Details</h3>
+                        <p><strong>Cost:</strong> £5 per session or £15 for all four sessions</p>
+                        <p><strong>Level:</strong> All skill levels welcome</p>
+                        <p><strong>Age:</strong> 16+</p>
+                    </div>
+                    
+                    
+
+                <div class="sidebar-card">
+                    <a href="coaches-signup.html" class="styled-link" style="width: 100%; text-align: center; justify-content: center;">
+                        <i class="fas fa-pen-to-square"></i>
+                        Coaches Signup Here!
+                    </a>
+                </div>
+
+                    
+
+
+                    
+                <!-- Registration Form -->
                 <div class="registration-form">
-                    <h2>Register for Training Weekend</h2>
+                    
+                    <h2>Sign up!</h2>
                     <form action="https://formspree.io/f/xwpnjevv" method="POST" id="training-form">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -387,36 +695,47 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">I have a British Gymnastics Membership</label>
-                            <input type="checkbox" id="membership" name="membership" required>
-                            <label for="email">Please enter your membership number if you have one</label>
-                            <input type="number" id="membership" name="membership" required>
+                            <label>
+                                <input type="checkbox" id="bg_membership_check" name="bg_membership_check" required>
+                                I have a British Gymnastics membership
+                            </label>
+                            <input type="text" id="bg_number" name="bg_number" placeholder="Membership number if known">
                         </div>
 
+                        
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="sessions">Training Sessions *</label>
+                            <div style="margin-bottom: 0.5rem;">
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="sessions" value="saturday_alloa" data-price="5">
+                                    Saturday Afternoon - Alloa Gymnastics (£5)
+                                </label>
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="sessions" value="sunday_alloa" data-price="5">
+                                    Sunday Morning - Alloa Gymnastics (£5)
+                                </label>
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="sessions" value="sunday_stirling" data-price="5">
+                                    Sunday Afternoon - Stirling Uni (£5)
+                                </label>
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="sessions" value="all_four" data-price="15">
+                                    All Four Sessions (£15 - Save £5!)
+                                </label>
+                            </div>
+                            <div id="total-price" style="font-weight: 600; color: #22c55e; margin-top: 0.5rem;"></div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="days">Training Days *</label>
-                            <select id="days" name="days" required>
-                                <option value="">Select training days</option>
-                                <option value="saturday">Saturday only (£25)</option>
-                                <option value="sunday">Sunday only (£25)</option>
-                                <option value="both">Both days (£45)</option>
+                            <label>Accommodation Planning *</label>
+                            <select id="accommodation" name="accommodation" required style="margin-bottom: 0.5rem;">
+                                <option value="">Select your accommodation option</option>
+                                <option value="can_host">I can host other participants</option>
+                                <option value="need_hosting">I would like to be hosted</option>
+                                <option value="self_arranged">I have arranged my own accommodation</option>
                             </select>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="accommodation">Accommodation</label>
-                            <select id="accommodation" name="accommodation" required>
-                            <option value="">Select accommodation</option>
-                            <option value="stirling">I can host</option>
-                            <option value="hotel">Self arranged</option>
-                            <option value="hostel">I'd like to be hosted</option>
-                        </select>
-                        </div>
                         
                         <div class="form-group">
                             <label for="experience">Experience Level</label>
@@ -454,38 +773,20 @@
                             </div>
                         </div>
                     </form>
+                </div> 
+                
+                <div class="sidebar-card" style="background: #f8fafc; border: 2px solid #e2e8f0;">
+                    <h3><i class="fas fa-users"></i> Admin Access</h3>
+                    <p style="margin-bottom: 1rem; color: #64748b;">View all registrations and manage signups</p>
+                    <a href="https://formspree.io/forms/xwpnjevv/submissions" target="_blank" class="styled-link" style="width: 100%; text-align: center; justify-content: center; margin-bottom: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Submissions
+                    </a>
+                </div>
                 </div>
                     
                 </div>
                 
-                <div class="event-sidebar">
-                    <div class="venue-card">
-                        <h4><i class="fas fa-map-marker-alt"></i> Saturday - Alloa</h4>
-                        <p>Alloa Gymnastics Centre<br>
-                        Stirling Road, Alloa<br>
-                        FK10 1NX</p>
-                    </div>
-                    
-                    <div class="venue-card">
-                        <h4><i class="fas fa-map-marker-alt"></i> Sunday - Stirling</h4>
-                        <p>Springkerse Gymnastics Centre<br>
-                        Springkerse Industrial Estate<br>
-                        Stirling, FK7 7UJ</p>
-                    </div>
-                    
-                    <div class="sidebar-card">
-                        <h3>Event Details</h3>
-                        <p><strong>Cost:</strong> £25 per day or £45 for both days</p>
-                        <p><strong>Level:</strong> All skill levels welcome</p>
-                        <p><strong>Age:</strong> 18+</p>
-                    </div>
-                        
-                    <div class="sidebar-card">
-                        <h3>Contact</h3>
-                        <p><i class="fas fa-envelope"></i> training@sugl.scot</p>
-                        <p><i class="fas fa-phone"></i> +44 (0) 131 123 4567</p>
-                    </div>
-                </div>
             </div>
             
            
@@ -535,6 +836,47 @@
 
     <script src="../script.js"></script>
     <script>
+        // Interactive Checklist functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize checklist
+            const packingChecklist = document.getElementById('packing-checklist');
+            const checkboxes = checklist.querySelectorAll('.checklist-checkbox');
+
+            // Set total items count
+            totalItems.textContent = checkboxes.length;
+
+            // Load saved state from localStorage
+            function loadChecklistState() {
+                checkboxes.forEach(checkbox => {
+                    const itemId = checkbox.dataset.item;
+                    const savedState = localStorage.getItem(`checklist_${itemId}`);
+                    if (savedState === 'true') {
+                        checkbox.checked = true;
+                    }
+                });
+                updateProgress();
+            }
+
+            // Save state to localStorage
+            function saveChecklistState() {
+                checkboxes.forEach(checkbox => {
+                    const itemId = checkbox.dataset.item;
+                    localStorage.setItem(`checklist_${itemId}`, checkbox.checked);
+                });
+            }
+
+            // Add event listeners to checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateProgress();
+                    saveChecklistState();
+                });
+            });
+
+            // Initialize the checklist
+            loadChecklistState();
+        });
+
         // Form submission handling
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('training-form');
@@ -544,6 +886,43 @@
             const formMessages = document.getElementById('form-messages');
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
+            
+            // Session selection and pricing logic
+            const sessionCheckboxes = document.querySelectorAll('input[name="sessions"]');
+            const totalPriceDiv = document.getElementById('total-price');
+            
+            function updatePricing() {
+                const selectedSessions = Array.from(sessionCheckboxes).filter(cb => cb.checked);
+                const allFourCheckbox = document.querySelector('input[value="all_four"]');
+                
+                if (allFourCheckbox.checked) {
+                    // If "All Four" is selected, uncheck individual sessions
+                    sessionCheckboxes.forEach(cb => {
+                        if (cb !== allFourCheckbox) cb.checked = false;
+                    });
+                    totalPriceDiv.textContent = 'Total: £15';
+                } else {
+                    // Calculate total from individual sessions
+                    const total = selectedSessions.reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
+                    totalPriceDiv.textContent = total > 0 ? `Total: £${total}` : '';
+                }
+            }
+            
+            sessionCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.value === 'all_four' && this.checked) {
+                        // Uncheck all other sessions when "All Four" is selected
+                        sessionCheckboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false;
+                        });
+                    } else if (this.checked) {
+                        // Uncheck "All Four" when individual sessions are selected
+                        const allFourCheckbox = document.querySelector('input[value="all_four"]');
+                        if (allFourCheckbox) allFourCheckbox.checked = false;
+                    }
+                    updatePricing();
+                });
+            });
 
             // Check for success parameter in URL
             const urlParams = new URLSearchParams(window.location.search);
@@ -553,6 +932,13 @@
 
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                // Validate that at least one session is selected
+                const selectedSessions = Array.from(sessionCheckboxes).filter(cb => cb.checked);
+                if (selectedSessions.length === 0) {
+                    alert('Please select at least one training session.');
+                    return;
+                }
                 
                 // Show loading state
                 submitBtn.disabled = true;
