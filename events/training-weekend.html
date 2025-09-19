@@ -498,7 +498,7 @@
                     <div class="info-section">
                         <h3><i class="fas fa-university"></i> Hosting University</h3>
                         <div class="university-link">
-                            <a href="https://www.stir.ac.uk/" target="_blank" class="styled-link">
+                            <a href="https://www.stirlingstudentsunion.com/sports-union/6596/" target="_blank" class="styled-link">
                                 <i class="fas fa-external-link-alt"></i>
                                 Stirling University
                             </a>
@@ -507,7 +507,7 @@
 
                     <div class="info-section">
                         <h3><i class="fas fa-bed"></i> Accommodation</h3>
-                        <p>Local students can arrange to be a host or arriving participants can be paired with a host if they wish to have a free accomodation option. This is not compulsory, but in previous years it has been a great way to make new friends and support the community.</p>
+                        <p>Arriving participants can be paired with a local host if they wish to have a free accomodation option. This is not compulsory, but in previous years it has been a great way to make new friends and support the community.</p>
                     </div>
                         
                     <div class="info-section">
@@ -577,12 +577,12 @@
                         <h3>Day 1 - Saturday</h3>
                     </div>
                     <div class="schedule-item">
-                        <span class="time-slot">TBC</span>
-                        <span>Morning Training Session</span>
+                        <span class="time-slot">9 AM - 11 AM</span>
+                        <span>Stirling Uni (Acro Session)</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">3 PM - 5 PM</span>
-                        <span>Alloa Gymnastics (Training Session)</span>
+                        <span>Alloa Gymnastics (Artistic Session)</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">6 PM - 8 PM</span>
@@ -597,24 +597,28 @@
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">10 AM - 1 PM</span>
-                        <span>Alloa Gymnastics (Training Session)</span>
+                        <span>Alloa Gymnastics (Artistic Session)</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time-slot">1 PM - 15PM</span>
+                        <span>Lunch and activities at Stirling Uni</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot">5 PM - 8 PM</span>
-                        <span>Stirling Uni (Training Session)</span>
+                        <span>Stirling Uni (Tumbling and Trampoline Session)</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time-slot"> 8:30PM - 12AM</span>
-                        <span>Stirling Uni (Pub Social)</span>
+                        <span>Stirling Spoons (Pub Dinner Social)</span>
                     </div>
 
                     <div class="info-section" style="margin-top: 2rem;">
                     <h3>Signup and participation</h3>
-                    <p>You must have a British Gymnastics membership to participate in the training weekend. You likely already have one if you are a member of a university gymnastics team.</p>
+                    <p>You must have a Scottish / British Gymnastics membership or alternative training insurance to participate in the training weekend. You likely already have one if you are a member of a gymnastics club.</p>
                     <br>
-                    <a href="https://www.britishgymnastics.org.uk/membership/join-british-gymnastics" target="_blank" class="styled-link">
+                    <a href="https://www.scottishgymnastics.org/experience/membership/" target="_blank" class="styled-link">
                         <i class="fas fa-external-link-alt"></i>
-                        British Gymnastics Membership
+                        Scottish Gymnastics Membership
                     </a>
                     </div>
                 </div>
@@ -624,16 +628,9 @@
                 <div class="event-sidebar">
                     <div class="venue-card">
                         <h4><i class="fas fa-map-marker-alt"></i> Saturday - Alloa</h4>
-                        <p>Alloa Gymnastics Centre<br>
-                        Stirling Road, Alloa<br>
-                        FK10 1NX</p>
-                    </div>
-                    
-                    <div class="venue-card">
-                        <h4><i class="fas fa-map-marker-alt"></i> Sunday - Stirling</h4>
-                        <p>Springkerse Gymnastics Centre<br>
-                        Springkerse Industrial Estate<br>
-                        Stirling, FK7 7UJ</p>
+                        <p>Alloa Gymnastics<br>
+                        The Wasp Centre, Clackmannan Road, Alloa<br>
+                        FK10 1RY</p>
                     </div>
                     
                     <div class="venue-card">
@@ -647,7 +644,7 @@
                         <h3>Event Details</h3>
                         <p><strong>Cost:</strong> £5 per session or £15 for all four sessions</p>
                         <p><strong>Level:</strong> All skill levels welcome</p>
-                        <p><strong>Age:</strong> 16+</p>
+                        <p><strong>Age:</strong> 17+ (18+ for the pub socials)</p>
                     </div>
                     
                     
@@ -674,19 +671,23 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="university">University *</label>
+                            <label for="university">Club *</label>
                             <select id="university" name="university" required>
-                                <option value="">Select your university</option>
+                                <option value="">Select your club</option>
                                 <option value="stirling">University of Stirling</option>
                                 <option value="edinburgh">University of Edinburgh</option>
                                 <option value="glasgow">University of Glasgow</option>
+                                <option value="gcu">Glasgow Calidonian University</option>
                                 <option value="st-andrews">University of St Andrews</option>
                                 <option value="aberdeen">University of Aberdeen</option>
+                                <option value="rgu">Robert Gordon University</option>
                                 <option value="dundee">University of Dundee</option>
                                 <option value="heriot-watt">Heriot-Watt University</option>
-                                <option value="other">Other university</option>
-                                <option value="independent">Independent</option>
+                                <option value="other">Other (Specify Below)</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="club_other" name="club_other" placeholder="Other club name" required style="display:none;">
                         </div>
                         
                         <div class="form-group">
@@ -730,7 +731,6 @@
                             <label>Accommodation Planning *</label>
                             <select id="accommodation" name="accommodation" required style="margin-bottom: 0.5rem;">
                                 <option value="">Select your accommodation option</option>
-                                <option value="can_host">I can host other participants</option>
                                 <option value="need_hosting">I would like to be hosted</option>
                                 <option value="self_arranged">I have arranged my own accommodation</option>
                             </select>
@@ -801,7 +801,7 @@
                     <div class="footer-logo">
                         <span>SUGL</span>
                     </div>
-                    <p>Promoting excellence in university gymnastics across Scotland.</p>
+                    <p>Creating a more inclusive and welcoming environment for university and adult gymnastics across Scotland.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -886,6 +886,21 @@
             const formMessages = document.getElementById('form-messages');
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
+
+            //Club selection logic
+            const clubSelect = document.getElementById('university');
+            const clubOtherField = document.getElementById('club_other');
+
+            clubSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    clubOtherField.style.display = 'block';
+                    clubOtherField.required = true;
+                } else {
+                    clubOtherField.style.display = 'none';
+                    clubOtherField.required = false;
+                    clubOtherField.value = '';
+                }
+            });
             
             // Session selection and pricing logic
             const sessionCheckboxes = document.querySelectorAll('input[name="sessions"]');
