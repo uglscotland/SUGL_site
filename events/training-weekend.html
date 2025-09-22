@@ -537,7 +537,7 @@
                             <div class="checklist-item">
                                 <label class="checklist-label">
                                     <input type="checkbox" class="checklist-checkbox" data-item="bandana">
-                                    <span class="checklist-icon"><i class="fas fa-suitcase"></i></span>
+                                    <span class="checklist-icon"><i class="fa-solid fa-skull-crossbones"></i></span>
                                     <span class="checklist-text">Bandana</span>
                                 </label>
                             </div>
@@ -700,28 +700,59 @@
                             <input type="text" id="bg_number" name="bg_number" placeholder="Membership number if known">
                         </div>
 
-                        
-                        <div class="form-group">
+
+
+                        <div class="form-group" id="sessions-group">
                             <label for="sessions">Training Sessions *</label>
                             <div style="margin-bottom: 0.5rem;">
                                 <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <input type="checkbox" name="sessions" value="acro_stirling" data-price="5">
+                                    Acro training Sat 9am (£5)
+                                </label>
+                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                                     <input type="checkbox" name="sessions" value="saturday_alloa" data-price="5">
-                                    Saturday Afternoon - Alloa Gymnastics (£5)
+                                    Artistic training Sat 3pm (£5)
                                 </label>
                                 <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                                     <input type="checkbox" name="sessions" value="sunday_alloa" data-price="5">
-                                    Sunday Morning - Alloa Gymnastics (£5)
+                                    Artistic training Sun 10am (£5)
                                 </label>
                                 <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                                     <input type="checkbox" name="sessions" value="sunday_stirling" data-price="5">
-                                    Sunday Afternoon - Stirling Uni (£5)
-                                </label>
-                                <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                                    <input type="checkbox" name="sessions" value="all_four" data-price="15">
-                                    All Four Sessions (£15 - Save £5!)
+                                    Tumbling and Trampoline Sun 5pm (£5)
                                 </label>
                             </div>
+                            
                             <div id="total-price" style="font-weight: 600; color: #22c55e; margin-top: 0.5rem;"></div>
+                            
+                            <script>
+                                document.getElementById('total-price').textContent = 'Total: £0';
+
+                            // Add event listener to update total price when checkboxes are changed
+                            const sessionCheckboxes = document.querySelectorAll('input[type="checkbox"][name="sessions"]');
+                            const totalPriceElem = document.getElementById('total-price');
+
+                            function updateTotalPrice() {
+                                let total = 0;
+                                sessionCheckboxes.forEach(cb => {
+                                    if (cb.checked) {
+                                        total += parseFloat(cb.getAttribute('data-price')) || 0;
+                                    }
+                                });
+                                if (total === 20) {
+                                    totalPriceElem.textContent = 'Total: £15';
+                                } else {
+                                    totalPriceElem.textContent = `Total: £${total}`;
+                                }
+                            }
+
+                            sessionCheckboxes.forEach(cb => {
+                                cb.addEventListener('change', updateTotalPrice);
+                            });
+
+                            // Initialize on page load
+                            updateTotalPrice();
+                            </script>
                         </div>
                         
                         <div class="form-group">
@@ -848,7 +879,6 @@
                         checkbox.checked = true;
                     }
                 });
-                updateProgress();
             }
 
             // Save state to localStorage
