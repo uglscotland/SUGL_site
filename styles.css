@@ -106,7 +106,7 @@ body {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: top;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     position: relative;
@@ -129,7 +129,7 @@ body {
 }
 
 .hero-content {
-    margin-bottom: 40%;
+    margin-top: 10%;
     margin-left: 10%;
     flex: 1;
     max-width: 600px;

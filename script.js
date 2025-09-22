@@ -215,6 +215,25 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Club selection logic for "Other" option
+document.addEventListener('DOMContentLoaded', () => {
+    const clubSelect = document.getElementById('club');
+    const clubOtherInput = document.getElementById('club_other');
+    
+    if (clubSelect && clubOtherInput) {
+        clubSelect.addEventListener('change', function() {
+            if (this.value === 'other') {
+                clubOtherInput.style.display = 'block';
+                clubOtherInput.required = true;
+            } else {
+                clubOtherInput.style.display = 'none';
+                clubOtherInput.required = false;
+                clubOtherInput.value = ''; // Clear the value when hidden
+            }
+        });
+    }
+});
+
 // Add CSS for active navigation link
 const style = document.createElement('style');
 style.textContent = `
@@ -227,3 +246,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style); 
+
+
+
