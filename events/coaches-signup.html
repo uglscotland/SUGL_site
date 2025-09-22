@@ -65,7 +65,14 @@
             font-weight: 600;
             color: #333;
         }
-        
+
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -201,8 +208,38 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="university">University/Club *</label>
-                    <input type="text" id="university" name="university" required placeholder="Your university or club name">
+                    <label for="club">Club *</label>
+                    <select id="club" name="club" required>
+                        <option value="">Select your club</option>
+                        <option value="stirling">University of Stirling</option>
+                        <option value="edinburgh">University of Edinburgh</option>
+                        <option value="glasgow">University of Glasgow</option>
+                        <option value="gcu">Glasgow Caledonian University</option>
+                        <option value="st-andrews">University of St Andrews</option>
+                        <option value="aberdeen">University of Aberdeen</option>
+                        <option value="rgu">Robert Gordon University</option>
+                        <option value="dundee">University of Dundee</option>
+                        <option value="heriot-watt">Heriot-Watt University</option>
+                        <option value="other">Other (Specify Below)</option>
+                    </select>
+                    <input type="text" id="club_other" name="club_other" placeholder="Other club name" required style="display:none;">
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const clubSelect = document.getElementById('club');
+                            const clubOtherInput = document.getElementById('club_other');
+                            
+                            clubSelect.addEventListener('change', function() {
+                                if (this.value === 'other') {
+                                    clubOtherInput.style.display = 'block';
+                                    clubOtherInput.required = true;
+                                } else {
+                                    clubOtherInput.style.display = 'none';
+                                    clubOtherInput.required = false;
+                                    clubOtherInput.value = '';
+                                }
+                            });
+                        });
+                    </script>
                 </div>
                 
                 <div class="form-group">
