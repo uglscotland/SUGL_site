@@ -837,7 +837,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize checklist
             const packingChecklist = document.getElementById('packing-checklist');
-            const checkboxes = checklist.querySelectorAll('.checklist-checkbox');
+            const checkboxes = packingChecklist.querySelectorAll('.checklist-checkbox');
 
             // Set total items count
             totalItems.textContent = checkboxes.length;
@@ -885,7 +885,7 @@
             const errorMessage = document.getElementById('error-message');
 
             //Club selection logic
-            const clubSelect = document.getElementById('university');
+            const clubSelect = document.getElementById('club');
             const clubOtherField = document.getElementById('club_other');
 
             clubSelect.addEventListener('change', function() {
