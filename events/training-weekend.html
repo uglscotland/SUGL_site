@@ -839,9 +839,6 @@
             const packingChecklist = document.getElementById('packing-checklist');
             const checkboxes = packingChecklist.querySelectorAll('.checklist-checkbox');
 
-            // Set total items count
-            totalItems.textContent = checkboxes.length;
-
             // Load saved state from localStorage
             function loadChecklistState() {
                 checkboxes.forEach(checkbox => {
