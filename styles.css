@@ -111,6 +111,10 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
+    background-image: url('./img/hero.jpg');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -125,6 +129,7 @@ body {
 }
 
 .hero-content {
+    margin-bottom: 40%;
     margin-left: 10%;
     flex: 1;
     max-width: 600px;
@@ -201,10 +206,11 @@ body {
     border-radius: 20px;
     position: relative;
     animation: float 6s ease-in-out infinite;
+    margin-bottom: 40%;
 }
 
 .gymnast-silhouette::before {
-    content: '🤸';
+    content: '🏴';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -222,6 +228,10 @@ body {
 .about {
     padding: 100px 0;
     background: #f8fafc;
+}
+
+.inactive {
+    pointer-events: none;
 }
 
 .about h2 {
