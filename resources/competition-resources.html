@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUGL Competition Resources</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-hero {
+            background-image: url("https://pxl-v6-stiracuk.terminalfour.net/fit-in/1900x689/filters:quality(88)/filters:format(webp)/prod01/cdn/media/stirling/global-assets/homepage-banner-images/homepage.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .event-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            margin-right: 80%;
+            margin-top: 10px;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            background-color: #000a;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #16a34a;
+        }
+
+        .resources-content {
+            padding: 4rem 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 2fr 0.5fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .resources-details-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #11998e;
+        }
+        
+        .resource-card h4 {
+            color: #11998e;
+            margin-bottom: 0.5rem;
+        }
+
+        .prerequisites {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prerequisites h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feedback-notice-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        
+        .btn-register {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-register:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #form-messages {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .info-section {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #22c55e;
+        }
+        
+        .info-section h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .info-section h3 i {
+            color: #22c55e;
+            font-size: 1.2rem;
+        }
+        
+        .info-section p {
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../img/LOGO.jpg" alt="SUGL Logo" class="logo-image" style="width: 50px; height: 50px;">
+                <span>SUGL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#universities" class="nav-link">Universities</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero">
+        <div class="container">
+            <a href="..\index.html" class="back-link">
+                <i class="fas fa-arrow-left" style="margin: auto;"></i>
+                Back Home
+            </a>
+            <h1>Resources</h1>
+            <p>Handbook, Rules & Regulations, etc.</p>
+        </div>
+    </section>
+
+    <!-- Resources Content -->
+    <section class="resources-content">
+        <div class="container">
+            <div class="resources-grid">
+                <div class="resources-details-card">
+                    <h2>Resources</h2>
+                    <p>This page has all the resources needed that will allow you to be able to compete and take part in our competitions and events.</p>
+                    
+                    
+                    <div class="prerequisites">
+                        <h4><i class="fas fa-info-circle"></i> Early Versions</h4>
+                        <p>Some of our documents are new and are subject to change over the following week or two as we recieve feedback from the community. We will endeavour to communicate any updates but please try and use the latest versions.</p>
+                    </div>
+
+                    <h3>Competition Handbook</h3>
+                    <div class="resource-card">
+                        <h4>Competition Handbook</h4>
+                        The competition handbook contains all the information you need to know about our competitions including how to enter, judging requirements and more.
+                        <br>
+                        <a href="resources\SUGL-Competition-Handbook-2025.pdf" download>SUGL Competition Handbook 2025</a>
+                    </div>
+
+                    <br>
+                    
+                    <h3>Rules and Regulations</h3>
+                    <div class="resource-card">
+                        <h4>Competition Rules and Regulations</h4>
+                        These rules and regulations govern all disciplines at SUGL competitions.
+                        <br>
+                        <a href="resources\SUGL-Competition-Rules-and-Regulations-2025.pdf" download>SUGL Competition Rules and Regulations 2025</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Artistic Rules and Regulations</h4>
+                        These rules and regulations govern artistic at SUGL competitions.
+                        <br>
+                        <a href="resources\SUGL-Artistic-Rules-and-Regulations-2025.pdf" download>SUGL Artistic Rules and Regulations 2025</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Tumble Rules and Regulations</h4>
+                        These rules and regulations tumble at SUGL competitions.
+                        <br>
+                        <a href="resources\SUGL-Tumbling-Rules-and-Regulations-2025.pdf" download>SUGL Tumble Rules and Regulations 2025</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Acro Rules and Regulations</h4>
+                        These rules and regulations govern acro at SUGL competitions.
+                        <br>
+                        <h4 style="color: #de5638;"><i class="fas fa-info-circle"></i> Acro Rules Coming Soon!</h4>
+                    </div>
+                </div>         
+            </div>     
+        </div>
+    </section>
+
+    <!-- Feedback Notice -->
+    <section class="feedback-notice-container">
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> Feedback and Mistakes</h3>
+            <p>If you spot any errors or mistakes in any of our resources please get in contact via email at <a href="mailto:scotunigymleague@gmail.com">scotunigymleague@gmail.com</a></p>
+        </div>
+        
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>SUGL</span>
+                    </div>
+                    <p>Creating a more inclusive and welcoming environment for university and adult gymnastics across Scotland.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#events">Events</a></li>
+                        <li><a href="../index.html#universities">Universities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Competition Resources</a></li>
+                        <li><a href="#">Training Guidelines</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Scottish University Gymnastics League. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
